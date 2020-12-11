@@ -1,6 +1,0 @@
-﻿CONJECTUREPANEL Conjectures
-CURRENTPROOF "¬P(y)∨(A(y)∧R(y))"
-INFER ¬P(y)∨(A(y)∧R(y))
-IS
-NEXTGOAL
-END
