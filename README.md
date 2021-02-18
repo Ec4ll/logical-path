@@ -11,4 +11,3 @@ The rules of a valid path are used as constraints, then the valid paths are foun
 -   `pathfinder.py`: Generates a single path for the grid using complex constraints.
 -   `all_paths.py`: Generates all of the unique paths for the grid. Note: large grids with few inaccessible squares will error out due to recursion depth limits.
 -   `display.py`: A module with helper functions to display the grid and paths to the console.
--   `test.py`: Confirms the submission has everything required.

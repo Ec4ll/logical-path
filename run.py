@@ -2,6 +2,7 @@
 The main driver for the project.
 """
 
+from time import sleep
 from setup import *
 from pathfinder import *
 from display import *
@@ -17,6 +18,8 @@ def var_to_coords(var_list: list):
 example_theory = single_path_theory
 
 if __name__ == "__main__":
+    print("To customize the grid, edit settings.py")
+    sleep(1)
     # Print the grid
     print("\nGrid:")
     print_grid()
