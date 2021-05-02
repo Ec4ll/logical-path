@@ -36,7 +36,7 @@ if __name__ == "__main__":
     print(f"Solution: {sol}", end="\n\n")
 
     # Print the path variables
-    path_sol = get_path(sol)
+    path_sol = get_path(sol) # type: ignore
     print(f"Path: {path_sol}")
 
     if path_sol != None:

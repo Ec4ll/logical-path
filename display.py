@@ -3,7 +3,6 @@ A module with helper functions to display the grid and paths to the console.
 """
 from setup import *
 
-
 def get_path(sol: dict):
     """Gets the path from the solution."""
     if sol == None:
@@ -11,7 +10,7 @@ def get_path(sol: dict):
 
     path = dict()
     for key in sol.keys():
-        if not key[0] == "x":
+        if "Path" in key.__repr__():
             path[key] = sol[key]
     if path == {}:
         return

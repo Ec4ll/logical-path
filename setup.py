@@ -1,4 +1,4 @@
-from nnf import Var
+from bauhaus import Encoding, proposition
 from settings import *
 
 
@@ -9,6 +9,28 @@ assert (end_coords[0] < GRID_SIZE and end_coords[1]
         < GRID_SIZE), f"Invalid ending square. Must be between (0,0) and ({GRID_SIZE-1},{GRID_SIZE-1})"
 assert (all(c[0] < GRID_SIZE for c in inaccessible_coords) and all(c[1] < GRID_SIZE for c in inaccessible_coords)
         ), f"One or more of the user defined inaccessible squares are outside of the grid."
+
+# Setup
+e = Encoding()
+
+@proposition(e)
+class GridSquare(object):
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return f"Grid({self.x},{self.y})"
+
+@proposition(e)
+class PathSquare(object):
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return f"Path({self.x},{self.y})"
+
 
 # [x00,x01,...,x0N,x10,...,xNN]
 # grid is a list of variables representing the squares of the grid
@@ -29,9 +51,9 @@ coords = list()
 # Generate the above lists based on the size of the grid
 for i in range(GRID_SIZE):
     for j in range(GRID_SIZE):
-        grid_vars.append(Var(f"x{i}{j}"))
-        coords.append((i, j))
-        path_vars.append(Var(f"y{i}{j}"))
+        grid_vars.append(GridSquare(i,j))
+        path_vars.append(PathSquare(i,j))
+        coords.append((i,j))
 
 
 start_index = coords.index(start_coords)

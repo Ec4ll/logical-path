@@ -1,4 +1,3 @@
-
 """
 Use this file to specify the grid size, starting square, ending square,
 and inaccessible squares.
@@ -19,4 +18,4 @@ start_coords = (0, 0)
 end_coords = (3, 3)
 
 # Set the inaccessible squares
-inaccessible_coords = [(0, 1), (1, 1), (3, 2)]
+inaccessible_coords = [(0, 1), (1, 1), (3, 2), (1,2), (1,3)]
