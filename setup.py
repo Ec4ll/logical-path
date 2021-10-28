@@ -3,15 +3,19 @@ from settings import *
 
 
 # Check the settings are all valid
-assert (start_coords[0] < GRID_SIZE and start_coords[1]
-        < GRID_SIZE), f"Invalid starting square. Must be between (0,0) and ({GRID_SIZE-1},{GRID_SIZE-1})"
-assert (end_coords[0] < GRID_SIZE and end_coords[1]
-        < GRID_SIZE), f"Invalid ending square. Must be between (0,0) and ({GRID_SIZE-1},{GRID_SIZE-1})"
-assert (all(c[0] < GRID_SIZE for c in inaccessible_coords) and all(c[1] < GRID_SIZE for c in inaccessible_coords)
-        ), f"One or more of the user defined inaccessible squares are outside of the grid."
+assert (
+    start_coords[0] < GRID_SIZE and start_coords[1] < GRID_SIZE
+), f"Invalid starting square. Must be between (0,0) and ({GRID_SIZE-1},{GRID_SIZE-1})"
+assert (
+    end_coords[0] < GRID_SIZE and end_coords[1] < GRID_SIZE
+), f"Invalid ending square. Must be between (0,0) and ({GRID_SIZE-1},{GRID_SIZE-1})"
+assert all(c[0] < GRID_SIZE for c in inaccessible_coords) and all(
+    c[1] < GRID_SIZE for c in inaccessible_coords
+), f"One or more of the user defined inaccessible squares are outside of the grid."
 
 # Setup
 e = Encoding()
+
 
 @proposition(e)
 class GridSquare(object):
@@ -21,6 +25,7 @@ class GridSquare(object):
 
     def __repr__(self):
         return f"Grid({self.x},{self.y})"
+
 
 @proposition(e)
 class PathSquare(object):
@@ -51,9 +56,9 @@ coords = list()
 # Generate the above lists based on the size of the grid
 for i in range(GRID_SIZE):
     for j in range(GRID_SIZE):
-        grid_vars.append(GridSquare(i,j))
-        path_vars.append(PathSquare(i,j))
-        coords.append((i,j))
+        grid_vars.append(GridSquare(i, j))
+        path_vars.append(PathSquare(i, j))
+        coords.append((i, j))
 
 
 start_index = coords.index(start_coords)
